@@ -282,7 +282,7 @@ export const mockApi = {
     };
   },
 
-  async getFilteredTransactions(filters: any): Promise<ApiResponse<Transaction[]>> {
+  async getFilteredTransactions(filters: { accountFilter?: string; dateRange?: { start: string; end: string }; status?: string; type?: string }): Promise<ApiResponse<Transaction[]>> {
     await delay(400);
     
 

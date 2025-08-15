@@ -17,7 +17,7 @@ export const fetchTransactions = createAsyncThunk(
 
 export const filterTransactions = createAsyncThunk(
   'transactions/filterTransactions',
-  async (filters: any) => {
+  async (filters: { accountFilter?: string; dateRange?: { start: string; end: string } }) => {
     const response = await mockApi.getFilteredTransactions(filters);
     if (response.status === 'error') {
       throw new Error(response.message || 'Failed to filter transactions');

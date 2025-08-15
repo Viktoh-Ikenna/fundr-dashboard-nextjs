@@ -33,14 +33,10 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const pageTitle = getPageTitle(pathname);
 
   useEffect(() => {
-    // Set mounted to true after hydration
-    setMounted(true);
-    
     const handleResize = () => {
       const desktop = window.innerWidth >= 1024;
       setIsDesktop(desktop);
